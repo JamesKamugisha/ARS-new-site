@@ -1,0 +1,363 @@
+/* Hero background image */
+.hero-bg-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--navy) 0%,
+    rgba(10, 25, 47, 0.85) 30%,
+    rgba(10, 25, 47, 0.4) 70%,
+    rgba(10, 25, 47, 0.25) 100%
+  );
+}
+
+/* Section 2 — What We Do */
+.what-we-do-image {
+  margin-bottom: 2.5rem;
+}
+
+.what-we-do-img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+.what-we-do {
+  background: var(--white);
+}
+
+.what-we-do .tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.what-we-do h2 {
+  margin-bottom: 3rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.care-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  border-left: 3px solid var(--accent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.care-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.care-card-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.care-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.care-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+}
+
+.care-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Section 3 — Services Strip */
+.services-strip {
+  background: var(--ice-soft);
+}
+
+.services-strip .tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.services-strip h2 {
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.service-item {
+  padding: 1.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.service-item:nth-child(3n) {
+  border-right: none;
+}
+
+.service-item:nth-child(n + 4) {
+  border-bottom: none;
+}
+
+.service-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.service-name {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.service-item p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* Section 4 — Locations */
+.locations-section {
+  background: var(--white);
+  text-align: center;
+}
+
+.locations-section .tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.locations-section h2 {
+  margin-bottom: 2.5rem;
+}
+
+.location-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.location-pill {
+  background: var(--ice);
+  color: var(--navy);
+  padding: 0.6rem 1.5rem;
+  border-radius: 99px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: default;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.location-pill:hover {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.locations-note {
+  font-size: 0.9rem;
+}
+
+/* Section 5 — CEO Quote */
+.ceo-quote {
+  background: var(--navy);
+}
+
+.ceo-quote-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.ceo-portrait {
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.ceo-portrait-img {
+  width: 220px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.ceo-quote-content {
+  position: relative;
+  text-align: left;
+}
+
+.ceo-quote-mark {
+  position: absolute;
+  top: -2.5rem;
+  left: 0;
+  font-size: 8rem;
+  line-height: 1;
+  color: var(--navy-light);
+  font-family: var(--font-display);
+  pointer-events: none;
+  user-select: none;
+}
+
+.ceo-quote-text {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--white);
+  max-width: 600px;
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+
+.ceo-quote-attr {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Section 6 — CTA Banner */
+.cta-banner {
+  background: var(--teal);
+  text-align: center;
+}
+
+.cta-banner-inner h2 {
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.cta-banner-inner p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-banner-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-cta-white {
+  background: var(--white);
+  color: var(--navy);
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-cta-white:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-cta-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1.5px solid var(--white);
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-cta-outline:hover {
+  background: var(--white);
+  color: var(--teal);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-item {
+    border-right: none;
+  }
+
+  .service-item:nth-child(n + 4) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-item:last-child {
+    border-bottom: none;
+  }
+
+  .hero-bg-image {
+    display: none;
+  }
+
+  .ceo-quote-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ceo-quote-content {
+    text-align: center;
+  }
+
+  .ceo-quote-text {
+    font-size: 1.5rem;
+  }
+
+  .ceo-quote-mark {
+    font-size: 5rem;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cta-banner-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

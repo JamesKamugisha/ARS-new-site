@@ -1,0 +1,215 @@
+/* ===========================
+   Tablet — max-width: 900px
+   =========================== */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  /* 3-col grids → 2 columns */
+  .card-grid,
+  .svc-grid,
+  .mvv-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Services strip border fix for 2-col */
+  .service-item:nth-child(3n) {
+    border-right: 1px solid var(--border);
+  }
+  .service-item:nth-child(2n) {
+    border-right: none;
+  }
+  .service-item:nth-child(n + 5) {
+    border-bottom: none;
+  }
+
+  /* Hero title */
+  .hero-home .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+
+  /* Navbar: hide desktop, show hamburger */
+  .navbar-links,
+  .navbar-cta {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+
+  /* Footer: 2-column */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ===========================
+   Mobile — max-width: 600px
+   =========================== */
+@media (max-width: 600px) {
+  /* Typography */
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: 4rem 0;
+  }
+
+  /* All multi-col grids → 1 column */
+  .card-grid,
+  .svc-grid,
+  .mvv-grid,
+  .services-grid,
+  .programs-grid,
+  .approach-grid,
+  .about-intro-grid,
+  .contact-grid,
+  .jt-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Services strip border cleanup for 1-col */
+  .service-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .service-item:last-child {
+    border-bottom: none;
+  }
+  .service-item:nth-child(n + 4) {
+    border-bottom: 1px solid var(--border);
+  }
+  .service-item:nth-child(n + 5) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Approach grid — second item gets top border back */
+  .approach-step:nth-child(2) {
+    border-top: 1px solid var(--border);
+  }
+
+  /* Hero home */
+  .hero-home {
+    height: auto;
+    min-height: 100vh;
+    padding: 6rem 0 4rem;
+  }
+
+  .hero-page {
+    height: auto;
+    min-height: 240px;
+    padding: 4rem 0;
+  }
+
+  .hero-page .hero-title {
+    font-size: 2rem;
+  }
+
+  /* JoinTeamPage sidebar */
+  .jt-sidebar {
+    position: static;
+  }
+
+  .jt-grid {
+    gap: 2rem;
+  }
+
+  /* Step indicator — compress labels */
+  .step-label {
+    display: none;
+  }
+
+  .step-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+
+  /* Form rows → 1 column */
+  .form-row,
+  .form-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .role-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Buttons — full width on mobile */
+  .btn-primary,
+  .btn-outline,
+  .btn-accent,
+  .btn-cta-white,
+  .btn-cta-outline,
+  .btn-cta-outline-white {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  .cta-banner-buttons,
+  .svc-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar-cta {
+    width: auto;
+  }
+
+  /* Footer single column */
+  .footer-about {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  /* Contact page stack */
+  .contact-grid {
+    gap: 2rem;
+  }
+
+  /* About features */
+  .about-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Location pills wrap tighter */
+  .location-pills {
+    gap: 0.5rem;
+  }
+
+  /* CEO quote */
+  .ceo-quote-text {
+    font-size: 1.4rem;
+  }
+  .ceo-quote-mark {
+    font-size: 5rem;
+    top: -1.5rem;
+  }
+}
