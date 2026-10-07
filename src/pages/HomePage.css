@@ -255,17 +255,18 @@
 
 /* Section 6 — CTA Banner */
 .cta-banner {
-  background: var(--teal);
+  background: var(--ice-soft);
+  border-top: 1px solid var(--border);
   text-align: center;
 }
 
 .cta-banner-inner h2 {
-  color: var(--white);
+  color: var(--navy);
   margin-bottom: 0.75rem;
 }
 
 .cta-banner-inner p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-mid);
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
@@ -274,41 +275,6 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-}
-
-.btn-cta-white {
-  background: var(--white);
-  color: var(--navy);
-  padding: 0.8rem 2rem;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.25s ease;
-  letter-spacing: 0.02em;
-}
-
-.btn-cta-white:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-cta-outline {
-  background: transparent;
-  color: var(--white);
-  padding: 0.8rem 2rem;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
-  border: 1.5px solid var(--white);
-  transition: all 0.25s ease;
-  letter-spacing: 0.02em;
-}
-
-.btn-cta-outline:hover {
-  background: var(--white);
-  color: var(--teal);
 }
 
 /* Responsive */

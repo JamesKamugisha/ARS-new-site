@@ -20,14 +20,27 @@
 
 .navbar-logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
   line-height: 1;
 }
 
 .navbar-logo-img {
-  height: 52px;
+  height: 44px;
   width: auto;
   object-fit: contain;
+}
+
+.navbar-logo-words {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-logo-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
 }
 
 .navbar-logo-text {
@@ -42,7 +55,7 @@
   color: var(--text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .navbar-links {

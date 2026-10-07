@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logoWhiteBg from '/logo-white-bg.png'
+import logoMark from '../assets/logo-mark.png'
 import './Footer.css'
 
 const quickLinks = [
@@ -16,13 +16,11 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-col footer-about">
           <div className="footer-logo">
-            <img src={logoWhiteBg} alt="ARS" className="footer-logo-img" />
+            <img src={logoMark} alt="" className="footer-logo-img" />
+            <span className="footer-logo-name">Assurance Residential Services</span>
           </div>
           <p className="footer-mission">
             Providing compassionate residential care across Maine since 2024.
-          </p>
-          <p className="footer-copyright-inline">
-            &copy; 2026 Assurance Residential Services LLC
           </p>
         </div>
 

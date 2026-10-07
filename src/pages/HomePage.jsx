@@ -157,8 +157,8 @@ export default function HomePage() {
           <h2>Ready to Make a Difference?</h2>
           <p>Join our compassionate team of caregivers across Maine.</p>
           <div className="cta-banner-buttons">
-            <Link to="/join-our-team" className="btn-cta-white">Join Our Team</Link>
-            <Link to="/contact" className="btn-cta-outline">Contact Us</Link>
+            <Link to="/join-our-team" className="btn-accent">Join Our Team</Link>
+            <Link to="/contact" className="btn-outline">Contact Us</Link>
           </div>
         </div>
       </AnimatedSection>

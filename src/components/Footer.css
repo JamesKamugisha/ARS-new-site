@@ -12,15 +12,23 @@
 
 .footer-logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  align-items: center;
+  gap: 0.75rem;
+  line-height: 1.2;
   margin-bottom: 1.25rem;
 }
 
 .footer-logo-img {
-  height: 72px;
+  height: 48px;
   width: auto;
   object-fit: contain;
+}
+
+.footer-logo-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  max-width: 180px;
 }
 
 .footer-mission {
@@ -28,11 +36,6 @@
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 1rem;
-}
-
-.footer-copyright-inline {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.82rem;
 }
 
 .footer-heading {
