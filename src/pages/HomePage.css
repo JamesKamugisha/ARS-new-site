@@ -156,6 +156,7 @@
 .locations-section {
   background: var(--white);
   text-align: center;
+  padding: 4.5rem 0;
 }
 
 .locations-section .tag {
@@ -164,7 +165,7 @@
 }
 
 .locations-section h2 {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .location-pills {
@@ -198,6 +199,7 @@
 /* Section 5 — CEO Quote */
 .ceo-quote {
   background: var(--navy);
+  padding: 4.5rem 0;
 }
 
 .ceo-quote-inner {
@@ -214,8 +216,8 @@
 }
 
 .ceo-portrait-img {
-  width: 220px;
-  height: 260px;
+  width: 240px;
+  height: 280px;
   object-fit: cover;
   border-radius: var(--radius-md);
 }
@@ -279,6 +281,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .locations-section,
+  .ceo-quote {
+    padding: 3.5rem 0;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
   }

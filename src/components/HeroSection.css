@@ -103,8 +103,8 @@
 @media (max-width: 768px) {
   .hero-home {
     height: auto;
-    min-height: 85vh;
-    padding: 6rem 0 4rem;
+    min-height: 0;
+    padding: 4rem 0 3.5rem;
   }
 
   .hero-page {
