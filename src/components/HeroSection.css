@@ -34,17 +34,21 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 680px;
+  /* Fill the container so the text lines up with the logo and page content
+     instead of being centered in a narrow column */
+  width: 100%;
 }
 
 .hero-home .hero-title {
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-size: clamp(2.8rem, 5vw, 4.25rem);
+  max-width: 600px;
 }
 
 .hero-home .hero-subtitle {
-  font-size: 1.2rem;
-  max-width: 520px;
+  font-size: 1.15rem;
+  max-width: 480px;
   margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .hero-cta {

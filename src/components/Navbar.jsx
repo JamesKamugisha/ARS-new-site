@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import logoTransparent from '../assets/logo-transparent.png'
+import logoMark from '../assets/logo-mark.png'
 import './Navbar.css'
 
 const navLinks = [
@@ -30,8 +30,11 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner container">
         <Link to="/" className="navbar-logo">
-          <img src={logoTransparent} alt="ARS" className="navbar-logo-img" />
-          <span className="navbar-logo-tagline">Assurance Residential Services</span>
+          <img src={logoMark} alt="" className="navbar-logo-img" />
+          <span className="navbar-logo-words">
+            <span className="navbar-logo-name">Assurance</span>
+            <span className="navbar-logo-tagline">Residential Services</span>
+          </span>
         </Link>
 
         <div className="navbar-links">
