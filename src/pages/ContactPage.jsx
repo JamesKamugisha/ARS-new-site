@@ -27,6 +27,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -34,7 +35,7 @@ export default function ContactPage() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate(form)
     if (Object.keys(errs).length > 0) {
@@ -42,10 +43,21 @@ export default function ContactPage() {
       return
     }
     setSubmitting(true)
-    setTimeout(() => {
-      setSubmitting(false)
+    setSubmitError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const result = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(result.error || 'Sending failed.')
       setSubmitted(true)
-    }, 800)
+    } catch (err) {
+      setSubmitError(err.message || 'We could not send your message. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const resetForm = () => {
@@ -217,6 +229,8 @@ export default function ContactPage() {
                   />
                   {errors.message && <span className="form-error">{errors.message}</span>}
                 </div>
+
+                {submitError && <p className="form-submit-error" role="alert">{submitError}</p>}
 
                 <button type="submit" className="btn-primary contact-submit" disabled={submitting}>
                   {submitting ? 'Sending...' : 'Send Message'}
