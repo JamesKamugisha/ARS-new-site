@@ -123,7 +123,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="contact-block-label">Email</p>
-                <p><a href="mailto:info@assurenceres.net">info@assurenceres.net</a></p>
+                <p><a href="mailto:info@assuranceres.net">info@assuranceres.net</a></p>
               </div>
             </div>
 

@@ -42,7 +42,7 @@ export default function Footer() {
           <ul className="footer-contact">
             <li>699 Sabattus St, Lewiston, ME 04240</li>
             <li>
-              <a href="mailto:info@assurenceres.net">info@assurenceres.net</a>
+              <a href="mailto:info@assuranceres.net">info@assuranceres.net</a>
             </li>
             <li>
               <a href="tel:+18572047623">(857) 204-7623</a>
