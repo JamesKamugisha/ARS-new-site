@@ -14,6 +14,7 @@ const US_STATES = [
 
 const CERTS = ['DSP', 'CRMA', 'CPI', 'HCBS (Annual)', 'CPR']
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const MAX_RESUME_BYTES = 4 * 1024 * 1024 // must stay under Vercel's 4.5MB request limit
 
 const benefits = [
   {
@@ -119,6 +120,7 @@ export default function JoinTeamPage() {
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [direction, setDirection] = useState(1) // 1=forward, -1=back
 
   const set = (name, value) => {
@@ -137,15 +139,19 @@ export default function JoinTeamPage() {
     }))
   }
 
-  const handleFile = (e) => {
-    const file = e.target.files?.[0] || null
+  const setResume = (file) => {
+    if (file && file.size > MAX_RESUME_BYTES) {
+      setErrors((prev) => ({ ...prev, resume: 'Resume must be 4MB or smaller.' }))
+      return
+    }
     set('resume', file)
   }
 
+  const handleFile = (e) => setResume(e.target.files?.[0] || null)
+
   const handleDrop = (e) => {
     e.preventDefault()
-    const file = e.dataTransfer.files?.[0] || null
-    set('resume', file)
+    setResume(e.dataTransfer.files?.[0] || null)
   }
 
   const next = () => {
@@ -162,12 +168,29 @@ export default function JoinTeamPage() {
     setErrors({})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validateStep(3, form)
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setSubmitting(true)
-    setTimeout(() => { setSubmitting(false); setSubmitted(true) }, 800)
+    setSubmitError('')
+
+    const data = new FormData()
+    for (const [key, value] of Object.entries(form)) {
+      if (Array.isArray(value)) value.forEach((v) => data.append(key, v))
+      else if (value) data.append(key, value)
+    }
+
+    try {
+      const res = await fetch('/api/apply', { method: 'POST', body: data })
+      const result = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(result.error || 'Submission failed.')
+      setSubmitted(true)
+    } catch (err) {
+      setSubmitError(err.message || 'We could not submit your application. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const slideVariants = {
@@ -417,12 +440,15 @@ export default function JoinTeamPage() {
                                   <path d="M4 22v4a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2v-4" />
                                   <path d="M16 4v16M10 10l6-6 6 6" />
                                 </svg>
-                                <p className="upload-text">Click or drag your resume here</p>
+                                <p className="upload-text">Click or drag your resume here (PDF or Word, max 4MB)</p>
                                 <input type="file" className="upload-input" onChange={handleFile} accept=".pdf,.doc,.docx" />
                               </>
                             )}
                           </div>
+                          {errors.resume && <span className="form-error">{errors.resume}</span>}
                         </div>
+
+                        {submitError && <p className="form-submit-error" role="alert">{submitError}</p>}
 
                         <div className="jt-nav-row">
                           <button type="button" className="jt-back-link" onClick={back}>&larr; Back</button>
