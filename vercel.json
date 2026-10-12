@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/scheduler", "destination": "https://ars-scheduler.vercel.app/scheduler" },
+    { "source": "/scheduler/:path*", "destination": "https://ars-scheduler.vercel.app/scheduler/:path*" }
+  ]
+}
